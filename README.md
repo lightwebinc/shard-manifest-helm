@@ -54,6 +54,27 @@ Set `metrics.serviceMonitor.enabled=true` to render a `ServiceMonitor`
 See [`values.yaml`](values.yaml) for all options, validated against
 [`values.schema.json`](values.schema.json).
 
+### SSM (Source-Specific Multicast)
+
+`manifest.sourceMode` defaults to `asm`. When `ssm`:
+
+- `manifest.publishers` MUST be a non-empty list of IPv6 literals
+  and/or DNS names — typically a headless-Service name fronting the
+  shard-proxy pods. Resolved via `shard-common/bootstrap.Resolver`
+  and emitted as the `Flags.SourcesValid` payload union (BRC-137
+  bit 4). `manifest.publishersRefresh` (default `30s`) sets the DNS
+  re-resolve interval; last-good AAAAs are retained on transient
+  failures.
+- Every emitted manifest sets `Flags.SourceModeSSM` (BRC-137 bit 3)
+  so listeners switch their data-plane address derivation to the
+  `FF3x::/32` SSM prefix.
+- The shard-manifest pod's own per-pod IPv6 (Multus + Whereabouts)
+  is what receivers list in their `sources.bootstrap.manifest` to
+  `(S,G)`-join the manifest group under Posture C.
+
+See the [SSM Support Plan](https://github.com/lightwebinc/bsv-multicast/blob/main/docs/SourceSpecificMulticast/ssm-support-plan.md)
+for fabric prerequisites.
+
 ## License
 
 Apache 2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
