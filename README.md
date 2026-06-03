@@ -54,6 +54,15 @@ Set `metrics.serviceMonitor.enabled=true` to render a `ServiceMonitor`
 See [`values.yaml`](values.yaml) for all options, validated against
 [`values.schema.json`](values.schema.json).
 
+### Logging & tracing
+
+`manifest.logFormat` (`json` default for this daemon | `text`) → `LOG_FORMAT`,
+`manifest.logLevel` (`info`) → `LOG_LEVEL`, and `manifest.traceSampling` (`0`)
+→ `TRACE_SAMPLING`, all schema-validated. The level is runtime-togglable via
+`POST /loglevel` and SIGHUP; `traceSampling > 0` (with `otlp.endpoint`) enables
+control-plane traces. See the
+[Unified Logging Plan](https://github.com/lightwebinc/bsv-multicast/blob/main/docs/UnifiedLogging/unified-logging-plan.md).
+
 ### SSM (Source-Specific Multicast)
 
 `manifest.sourceMode` defaults to `asm`. When `ssm`:

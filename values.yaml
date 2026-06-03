@@ -67,7 +67,11 @@ manifest:
   iface: ""                           # egress interface; empty = auto-pick (set explicitly when using multus/host)
   announceInterval: "300s"
   ttl: "0s"                           # 0 = consumer default (3× interval)
-  debug: false
+  debug: false  # deprecated alias for logLevel=debug
+  # Unified logging — see bsv-multicast/docs/UnifiedLogging/unified-logging-plan.md
+  logFormat: "json"   # text (stderr) | json (stdout; default for this daemon)
+  logLevel: "info"    # debug|info|warn|error; runtime-togglable via POST /loglevel + SIGHUP
+  traceSampling: 0    # 0..1 trace head sampling (0 = off; exports via otlp.endpoint)
 
   # SSM (RFC 4607). See bsv-multicast/docs/SourceSpecificMulticast.
   # sourceMode "ssm" sets Flags.SourceModeSSM on every emitted manifest

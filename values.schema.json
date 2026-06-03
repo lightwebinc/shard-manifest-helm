@@ -51,6 +51,9 @@
         "announceInterval": { "type": "string" },
         "ttl": { "type": "string" },
         "debug": { "type": "boolean" },
+        "logFormat": { "type": "string", "enum": ["text", "json"] },
+        "logLevel": { "type": "string", "enum": ["debug", "info", "warn", "error"] },
+        "traceSampling": { "type": "number", "minimum": 0, "maximum": 1 },
         "sourceMode": { "type": "string", "enum": ["asm", "ssm"] },
         "publishers": { "type": "array", "items": { "type": "string" } },
         "publishersRefresh": { "type": "string" }

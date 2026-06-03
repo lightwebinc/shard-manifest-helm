@@ -103,6 +103,14 @@ hard-coded default.
   value: {{ .Values.otlp.interval | quote }}
 - name: DEBUG
   value: {{ .Values.manifest.debug | quote }}
+- name: LOG_FORMAT
+  value: {{ .Values.manifest.logFormat | quote }}
+- name: LOG_LEVEL
+  value: {{ .Values.manifest.logLevel | quote }}
+{{- if .Values.manifest.traceSampling }}
+- name: TRACE_SAMPLING
+  value: {{ .Values.manifest.traceSampling | quote }}
+{{- end }}
 - name: INSTANCE_ID
   value: {{ default "" .Values.manifest.instanceId | quote }}
 {{- end -}}
