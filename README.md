@@ -61,7 +61,7 @@ See [`values.yaml`](values.yaml) for all options, validated against
 → `TRACE_SAMPLING`, all schema-validated. The level is runtime-togglable via
 `POST /loglevel` and SIGHUP; `traceSampling > 0` (with `otlp.endpoint`) enables
 control-plane traces. See the
-[Unified Logging Plan](https://github.com/lightwebinc/bsv-multicast/blob/main/docs/UnifiedLogging/unified-logging-plan.md).
+[Unified Logging Plan](https://github.com/lightwebinc/shard-common/blob/main/docs/logging.md).
 
 ### SSM (Source-Specific Multicast)
 
