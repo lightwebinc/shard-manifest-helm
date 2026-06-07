@@ -1,5 +1,7 @@
 # shard-manifest-helm
 
+> Part of the [**BSV Layered Multicast**](https://github.com/lightwebinc/bsv-multicast) open-source project — see the main repository for the full architecture, design docs, and BRC specifications.
+
 Helm chart for [`shard-manifest`](https://github.com/lightwebinc/shard-manifest)
 — the BRC-137 Shard Manifest Announcement Daemon.
 
