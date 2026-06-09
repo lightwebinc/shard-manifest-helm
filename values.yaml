@@ -52,7 +52,7 @@ networking:
   host:
     dnsPolicy: ClusterFirstWithHostNet
 
-# BRC-137 manifest content
+# BRC-139 manifest content
 manifest:
   shardBits: 0                        # 0..12; MUST match the rest of the network
   joinedGroups: ""                    # comma list of indices (hex/dec), or "all", or empty

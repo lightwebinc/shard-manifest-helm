@@ -1,6 +1,6 @@
 apiVersion: v2
 name: shard-manifest
-description: BRC-137 Shard Manifest Announcement Daemon for the BSV multicast pipeline
+description: BRC-139 Shard Manifest Announcement Daemon for the BSV multicast pipeline
 type: application
 version: 0.2.0
 appVersion: "0.1.0"
@@ -9,7 +9,7 @@ keywords:
   - bitcoin
   - bsv
   - multicast
-  - brc-137
+  - brc-139
   - shard-manifest
 home: https://github.com/lightwebinc/shard-manifest
 sources:

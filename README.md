@@ -3,7 +3,7 @@
 > Part of the [**BSV Layered Multicast**](https://github.com/lightwebinc/bsv-multicast) open-source project — see the main repository for the full architecture, design docs, and BRC specifications.
 
 Helm chart for [`shard-manifest`](https://github.com/lightwebinc/shard-manifest)
-— the BRC-137 Shard Manifest Announcement Daemon.
+— the BRC-139 Shard Manifest Announcement Daemon.
 
 The daemon periodically multicasts a small datagram to the IPv6 beacon
 group (`FF0X::B:FFFD`) advertising the local participant's `shard_bits`
@@ -72,18 +72,18 @@ control-plane traces. See the
 - `manifest.publishers` MUST be a non-empty list of IPv6 literals
   and/or DNS names — typically a headless-Service name fronting the
   shard-proxy pods. Resolved via `shard-common/bootstrap.Resolver`
-  and emitted as the `Flags.SourcesValid` payload union (BRC-137
+  and emitted as the `Flags.SourcesValid` payload union (BRC-139
   bit 4). `manifest.publishersRefresh` (default `30s`) sets the DNS
   re-resolve interval; last-good AAAAs are retained on transient
   failures.
-- Every emitted manifest sets `Flags.SourceModeSSM` (BRC-137 bit 3)
+- Every emitted manifest sets `Flags.SourceModeSSM` (BRC-139 bit 3)
   so listeners switch their data-plane address derivation to the
   `FF3x::/32` SSM prefix.
 - The shard-manifest pod's own per-pod IPv6 (Multus + Whereabouts)
   is what receivers list in their `sources.bootstrap.manifest` to
   `(S,G)`-join the manifest group under Posture C.
 
-See the [SSM Support Plan](https://github.com/lightwebinc/bsv-multicast/blob/main/docs/SourceSpecificMulticast/ssm-support-plan.md)
+See the [SSM Support Plan](https://github.com/lightwebinc/bsv-multicast/blob/main/DESIGN.md#source-specific-multicast-ssm)
 for fabric prerequisites.
 
 ## License
