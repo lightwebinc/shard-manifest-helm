@@ -78,7 +78,7 @@ manifest:
   # AND requires publishers to be non-empty. Each entry is an IPv6 literal
   # or DNS name; the shard-manifest sender resolves AAAA records and
   # includes them in the Flags.SourcesValid payload union.
-  sourceMode: "asm"
+  sourceMode: "ssm"
   publishers: []                       # ["shard-proxy-headless.svc.cluster.local"]
   publishersRefresh: "30s"
 
